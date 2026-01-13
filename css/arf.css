@@ -47,7 +47,7 @@ body {
 .node circle {
   cursor: pointer;
   fill: #fff;
-  stroke: steelblue;
+  stroke: rgb(36, 36, 36);
   stroke-width: 1.5px;
 }
 
@@ -144,3 +144,15 @@ path.link {
   from { transform: translateY(-50%); }
   to { transform: translateY(0); }
 }
+
+.node circle,
+.node text {
+  cursor: pointer;
+}
+
+body {
+  opacity: 1;
+  transition: opacity 3s ease;
+}
+
+

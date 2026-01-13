@@ -68,12 +68,20 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
       .on("click", function(d) { toggle(d); update(d); });
 
-  nodeEnter.append("svg:circle")
-      .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+ nodeEnter.append("svg:circle")
+    .attr("r", 1e-6)
+    .style("fill", function(d) { return d._children ? "#dddddd" : "#616161"; })
+    .on("click", function(d) {
+      // Leaf node with URL → navigate
+      if (d.url && !d.children && !d._children) {
+        window.location.href = d.url;
+        d3.event.stopPropagation();
+      }
+    });
+
 
   nodeEnter.append('a')
-      .attr("target", "_blank")
+      .attr("target", "_self")
       .attr('xlink:href', function(d) { return d.url; })
       .append("svg:text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
@@ -95,7 +103,7 @@ function update(source) {
 
   nodeUpdate.select("circle")
       .attr("r", 6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+      .style("fill", function(d) { return d._children ? "#dddddd" : "#fff" });
 
   nodeUpdate.select("text")
       .style("fill-opacity", 1);

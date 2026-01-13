@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Resilient Red Hook Housing Typology</title>
+
+  <!-- Basic responsive setup -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fade-in only -->
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 40px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Resilient Red Hook Housing Typology</h1>
+
+  <p>
+    Project description goes here. Replace this with your narrative,
+    drawings, images, and analysis.
+  </p>
+
+  <!-- Back using browser history to preserve tree state -->
+  <div class="back" onclick="history.back()">← Back</div>
+
+  <!-- Fade-in trigger -->
+  <script>
+    window.addEventListener("load", function () {
+      document.body.style.opacity = "1";
+    });
+  </script>
+
+</body>
+</html>
