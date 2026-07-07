@@ -17,18 +17,18 @@
       },
       {
         "name": "CASA SOÑADA",
-        "type": "url",
-        "url": "https://github.com/sherlock-project/sherlock"
+        "type": "internal",
+        "url": "projects/architecture/undergraduate/casaSonada.html"
       },
       {
         "name": "ROOSEVELT URBAN MARKET",
-        "type": "url",
-        "url": "https://whatsmyname.app/"
+        "type": "internal",
+        "url": "projects/architecture/undergraduate/rooseveltUrbanMarket.html"
       },
       {
         "name": "WEBSTER LIBRARY A/V EXPANSION",
-        "type": "url",
-        "url": "https://namechk.com/"
+        "type": "internal",
+        "url": "projects/architecture/undergraduate/websterLibrary.html"
       }
       ]
     },
