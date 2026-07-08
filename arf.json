@@ -11,6 +11,11 @@
       "type": "folder",
       "children": [
       {
+        "name": "MUSEO DELLA ACQUA",
+        "type": "internal",
+        "url": "projects/architecture/undergraduate/museoDellaAcqua.html"
+      },
+      {
         "name": "RESILIENT RED HOOK HOUSING TYPOLOGY",
         "type": "internal",
         "url": "projects/architecture/undergraduate/redHook.html"
@@ -103,12 +108,12 @@
       {
         "name": "LINKEDIN",
         "type": "url",
-        "url": "https://www.ip2location.com/demo"
+        "url": "https://www.linkedin.com/in/jackbowser/"
       },
       {
         "name": "CONTACT",
-        "type": "url",
-        "url": "http://www.ipfingerprints.com/"
+        "type": "internal",
+        "url": "contact.html"
       }
     ]
   }

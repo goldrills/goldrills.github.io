@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact — Jack Bowser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; height: 100%; }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #000;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .return-button {
+      position: fixed;
+      top: 2vw;
+      left: 2vw;
+      background: none;
+      border: none;
+      padding: 0;
+
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(12px, 0.9vw, 14px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      color: #000;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .return-button:hover { text-decoration: underline; }
+
+    .contact {
+      text-align: center;
+      padding: 6vw;
+    }
+
+    .contact h1 {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 1.5em 0;
+    }
+
+    .contact a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      font-size: clamp(16px, 1.6vw, 22px);
+      letter-spacing: 0.04em;
+      margin: 0.6em 0;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <button class="return-button" id="returnBtn">RETURN</button>
+
+  <div class="contact">
+    <h1>Jack Bowser</h1>
+    <a href="mailto:jackwbowser@gmail.com">jackwbowser@gmail.com</a>
+    <a href="tel:+19194825998">+1 919-482-5998</a>
+  </div>
+
+  <script>
+    document.getElementById("returnBtn").addEventListener("click", function () {
+      if (window.history.length > 1) history.back();
+      else window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
