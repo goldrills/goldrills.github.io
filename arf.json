@@ -79,15 +79,9 @@
     "type": "folder",
     "children": [
     {
-      "name": "IN PROGRESS",
-      "type": "folder",
-      "children": [
-      {
-        "name": "IN PROGRESS",
-        "type": "url",
-        "url": "http://centralops.net/co/DomainDossier.aspx"
-      }
-      ]
+      "name": "THIS WEBSITE",
+      "type": "url",
+      "url": "https://github.com/goldrills/goldrills.github.io"
     }
   ]
   },

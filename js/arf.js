@@ -26,7 +26,7 @@ var vis = d3.select("#body").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(" + margin[3] + "," + margin[0] + ")");
 
-d3.json("arf.json", function(json) {
+d3.json("arf.json?v=2", function(json) {
   root = json;
   root.x0 = height / 2;
   root.y0 = 0;
@@ -72,16 +72,19 @@ function update(source) {
     .attr("r", 1e-6)
     .style("fill", function(d) { return d._children ? "#dddddd" : "#616161"; })
     .on("click", function(d) {
-      // Leaf node with URL → navigate
+      // Leaf node with URL → navigate. Internal pages stay in the same
+      // tab; external links (type "url") open in a new tab.
       if (d.url && !d.children && !d._children) {
-        window.location.href = d.url;
+        if (d.type === "internal") window.location.href = d.url;
+        else window.open(d.url, "_blank", "noopener");
         d3.event.stopPropagation();
       }
     });
 
 
   nodeEnter.append('a')
-      .attr("target", "_self")
+      .attr("target", function(d) { return d.type === "internal" ? "_self" : "_blank"; })
+      .attr("rel", function(d) { return d.type === "internal" ? null : "noopener noreferrer"; })
       .attr('xlink:href', function(d) { return d.url; })
       .append("svg:text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })

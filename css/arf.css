@@ -1,8 +1,23 @@
+html,
+body {
+  margin: 0;
+  /* The d3 tree SVG is sized to the full viewport; removing the default
+     body margin and hiding page overflow stops the phantom right/bottom
+     scrollbars. This is purely visual and does not affect the tree's
+     resize logic in js/arf.js, which reads window.innerWidth/Height. */
+  overflow: hidden;
+}
+
 body {
   background-color: #ffffff;
   font-size: 14px;
   letter-spacing: 1px;
   font-family: "Helvetica Neue", Helvetica;
+}
+
+/* Remove the inline-SVG baseline gap that adds a few stray pixels. */
+#body svg {
+  display: block;
 }
 
 #body {
