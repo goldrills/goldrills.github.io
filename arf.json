@@ -97,7 +97,7 @@
       {
         "name": "RESUME",
         "type": "internal",
-        "url": "resume.html"
+        "url": "pages/resume.html"
       },
       {
         "name": "LINKEDIN",
@@ -107,7 +107,7 @@
       {
         "name": "CONTACT",
         "type": "internal",
-        "url": "contact.html"
+        "url": "pages/contact.html"
       }
     ]
   }

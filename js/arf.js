@@ -76,7 +76,7 @@ function setPan(enable) {
   }
 }
 
-d3.json("arf.json?v=2", function(json) {
+d3.json("arf.json?v=4", function(json) {
   root = json;
   root.x0 = height / 2;
   root.y0 = 0;
