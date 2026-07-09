@@ -96,8 +96,8 @@
       },
       {
         "name": "RESUME",
-        "type": "url",
-        "url": "http://ipverse.net/"
+        "type": "internal",
+        "url": "resume.html"
       },
       {
         "name": "LINKEDIN",

@@ -1,5 +1,19 @@
-var margin = [10, 200, 50, 200]
-    function getWidth() {
+var margin = [10, 200, 50, 200]; // [top, right, bottom, left]
+var depthGap = 180;              // horizontal px between tree depth levels
+
+// --- Responsive horizontal layout ---------------------------------------
+// The tree is drawn left-to-right with a fixed gap per depth level and wide
+// side margins. Those fixed values run off narrow screens (e.g. phones), so
+// scale them to the viewport width. Called on load and on every resize.
+function computeLayout() {
+  var w = window.innerWidth;
+  margin[3] = Math.max(72, Math.min(200, w * 0.16)); // left: room for root label
+  margin[1] = Math.max(16, Math.min(200, w * 0.05)); // right: small padding
+  depthGap  = Math.max(54, Math.min(180, w * 0.20)); // gap between depth levels
+}
+computeLayout();
+
+function getWidth() {
   return window.innerWidth - margin[1] - margin[3];
 }
 
@@ -20,11 +34,47 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-var vis = d3.select("#body").append("svg:svg")
+var svg = d3.select("#body").append("svg:svg")
     .attr("width", width + margin[1] + margin[3])
-    .attr("height", height + margin[0] + margin[2])
-  .append("svg:g")
+    .attr("height", height + margin[0] + margin[2]);
+
+// Pan layer: on narrow screens the tree's labels can extend past the
+// viewport, so let the user drag the whole tree to reach them.
+var panLayer = svg.append("svg:g").attr("class", "pan-layer");
+
+var vis = panLayer.append("svg:g")
     .attr("transform", "translate(" + margin[3] + "," + margin[0] + ")");
+
+// Pan-only behavior (no zoom/scale). Toggled on in resize() for small
+// screens; disabled on desktop where the whole tree already fits.
+var panEnabled = false;
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 1])
+    .on("zoom", function () {
+      panLayer.attr("transform", "translate(" + d3.event.translate + ")");
+    });
+
+function setPan(enable) {
+  if (enable === panEnabled) return;
+  panEnabled = enable;
+  if (enable) {
+    svg.call(zoom);
+  } else {
+    // d3 v3 can't remove listeners by namespace alone, so null each one.
+    zoom.translate([0, 0]);
+    svg.on("mousedown.zoom", null)
+       .on("mousemove.zoom", null)
+       .on("dblclick.zoom", null)
+       .on("touchstart.zoom", null)
+       .on("touchmove.zoom", null)
+       .on("touchend.zoom", null)
+       .on("mousewheel.zoom", null)
+       .on("MozMousePixelScroll.zoom", null)
+       .on("wheel.zoom", null)
+       .on("DOMMouseScroll.zoom", null);
+    panLayer.attr("transform", null); // reset to identity on desktop
+  }
+}
 
 d3.json("arf.json?v=2", function(json) {
   root = json;
@@ -55,8 +105,8 @@ function update(source) {
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse();
   
-  // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  // Normalize for fixed-depth (responsive gap between levels).
+  nodes.forEach(function(d) { d.y = d.depth * depthGap; });
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
@@ -176,13 +226,21 @@ function goDark() {
 } 
 
 function resize() {
+  computeLayout();
   width = getWidth();
   height = getHeight();
 
   // Resize SVG
-  d3.select("svg")
+  svg
     .attr("width", width + margin[1] + margin[3])
     .attr("height", height + margin[0] + margin[2]);
+
+  // Reposition the root group for the current (responsive) side margin.
+  vis.attr("transform", "translate(" + margin[3] + "," + margin[0] + ")");
+
+  // On narrow screens, enable dragging the tree so off-screen labels
+  // remain reachable; on desktop the tree fits, so keep it fixed.
+  setPan(window.innerWidth < 700);
 
   // Update tree layout size
   tree.size([height, width]);

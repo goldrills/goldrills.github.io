@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume — Jack Bowser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png?v=2" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    .return-button {
+      position: fixed;
+      top: 2vw;
+      left: 2vw;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(12px, 0.9vw, 14px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .return-button:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 88px 32px 96px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 12px;
+    }
+
+    .contact {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .contact a { color: #333; }
+
+    .download {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    section { margin-top: 40px; }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #111;
+    }
+
+    .entry { margin-bottom: 22px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .entry-title { font-weight: 700; }
+    .entry-date {
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+    }
+    .entry-org {
+      font-style: italic;
+      color: #333;
+      margin: 2px 0 6px;
+    }
+    .entry-desc {
+      font-size: 14.5px;
+      color: #222;
+      max-width: 68ch;
+    }
+
+    ul.software {
+      margin: 0;
+      padding-left: 20px;
+    }
+    ul.software li { margin-bottom: 4px; }
+
+    @media (max-width: 560px) {
+      .page { padding: 72px 20px 72px; }
+      .entry-head { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="return-button" id="returnBtn">RETURN</button>
+
+  <div class="page">
+    <header>
+      <h1>JACK BOWSER</h1>
+      <div class="contact">
+        <a href="mailto:jackwbowser@gmail.com">jackwbowser@gmail.com</a> · 919-482-5998
+      </div>
+      <div class="contact">
+        <a href="https://www.linkedin.com/in/jackbowser/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jackbowser</a>
+      </div>
+      <a class="download" href="/projects/about/Jack Bowser Resume 2026.pdf" target="_blank" rel="noopener noreferrer">Download PDF ↓</a>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Bachelor of Architecture (B.Arch)</span>
+          <span class="entry-date">2022–2027</span>
+        </div>
+        <div class="entry-org">Pratt Institute — Brooklyn, New York</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Software</h2>
+      <ul class="software">
+        <li>Rhino, Revit, AutoCAD</li>
+        <li>Adobe Photoshop, Illustrator, InDesign, After Effects</li>
+        <li>Microsoft Word, Excel, PowerPoint</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Teaching Assistant</span>
+          <span class="entry-date">Aug. 2025 – Present</span>
+        </div>
+        <div class="entry-org">Pratt Institute — Brooklyn, NY</div>
+        <div class="entry-desc">
+          Provided support and guidance to Representation I and Technics students, assisting with analog and digital
+          drawings, model making, narrative development, and providing general constructive feedback. Developed skills
+          providing actionable guidance and adapting feedback to students at varying levels of technical proficiency.
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Assistant Manager</span>
+          <span class="entry-date">Jun. 2022 – Aug. 2024</span>
+        </div>
+        <div class="entry-org">Autobell Car Wash — Durham, NC</div>
+        <div class="entry-desc">
+          Managed labor scheduling and staff supervision, handled customer inquiries and complaints, and performed
+          maintenance and repairs on car wash equipment. Built experience working directly with clients by managing
+          expectations, addressing complaints diplomatically, and balancing customer needs with operational constraints.
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Crew Member</span>
+          <span class="entry-date">Feb. 2022 – Jun. 2022</span>
+        </div>
+        <div class="entry-org">Autobell Car Wash — Durham, NC</div>
+        <div class="entry-desc">
+          Performed hands-on vehicle washing and site operations while serving as the first point of contact for customers,
+          advising them on service options and successfully converting sales through clear communication and product
+          knowledge. Developed strong interpersonal skills by balancing efficiency, accuracy, and customer satisfaction in a
+          fast-paced, public-facing environment.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Involvement</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Writer, Editor</span>
+        </div>
+        <div class="entry-org">Pratt Futures — Brooklyn, NY</div>
+        <div class="entry-desc">
+          Researched, wrote, and edited articles for Pratt Futures, a student-led, social justice–oriented publication at Pratt
+          Institute, with current work focused on local preservation activity and advocacy. Developed strong research,
+          analytical writing, and editorial skills through independent investigation, source evaluation, and collaborative review.
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Volunteer</span>
+        </div>
+        <div class="entry-org">Paul Rudolph Institute for Modern Architecture — New York, NY</div>
+        <div class="entry-desc">
+          Volunteered at the Paul Rudolph Institute for Modern Architecture, assisting with the care and stewardship of the
+          landmarked building and the preparation of the gallery space for exhibitions. Worked closely with the head curator
+          to prepare exhibition spaces, gaining hands-on experience in exhibition setup, spatial coordination, and curatorial
+          workflows.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById("returnBtn").addEventListener("click", function () {
+      if (window.history.length > 1) history.back();
+      else window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
