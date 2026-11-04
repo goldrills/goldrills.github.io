@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Now Showing — Jack Bowser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/img/favicon.png?v=2" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .return-button {
+      position: fixed;
+      top: 2vw;
+      left: 2vw;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(12px, 0.9vw, 14px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .return-button:hover { text-decoration: underline; }
+
+    .inprocess { text-align: center; padding: 8vw 24px; }
+
+    .inprocess .label {
+      font-size: clamp(11px, 1vw, 13px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 14px;
+    }
+    .inprocess .project {
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      max-width: 16ch;
+      margin: 0 auto 18px;
+    }
+    .inprocess .status {
+      font-size: clamp(12px, 1vw, 14px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="return-button" id="returnBtn">RETURN</button>
+
+  <div class="inprocess">
+    <p class="label">Pratt Futures</p>
+    <h1 class="project">Now Showing: Holes in New York's Preservation Framework</h1>
+    <p class="status">Page In Process</p>
+  </div>
+
+  <script>
+    document.getElementById("returnBtn").addEventListener("click", function () {
+      if (window.history.length > 1) history.back();
+      else window.location.href = "/index.html";
+    });
+  </script>
+</body>
+</html>

@@ -59,8 +59,8 @@
       "children": [
       {
         "name": "NOW SHOWING: HOLES IN NEW YORKS PRESERVATION FRAMEWORK",
-        "type": "url",
-        "url": "https://sylva.pfeister.dev/"
+        "type": "internal",
+        "url": "pages/nowShowing.html"
       }]
     },
     {
